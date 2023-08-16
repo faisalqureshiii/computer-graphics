@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+#include<math.h>
+void main(){
+int rx=0,ry=0,xc,yc;
+int x=0,y=ry,gd=DETECT,gm;
+float p1,p2,dx,dy;
+initgraph(&gd,&gm,"c:\\turboc3\\bgi");
+
+printf("enter the coordinates");
+scanf("%d%d",&xc,&yc);
+printf("enter rx and ry");
+scanf("%d%d",&rx,&ry);
+
+p1=ry*ry-rx*rx*ry*ry+0.25*rx*rx;
+while(dx<dy)
+{
+putpixel(xc+x,yc+y,7);
+putpixel(xc+x,yc-y,7);
+putpixel(xc-x,yc+y,7);
+putpixel(xc-x,yc-y,7);
+ dx=2*ry*ry*x;
+ dy=2*rx*rx*y;
+if(p1<0)
+{
+x++;
+p1+=2*ry*ry*x+ry*ry;
+}
+else
+{
+x++;
+y--;
+p1+=dx-dy+ry*ry;
+}}   p2+=pow(ry,2)*pow(x+0.5,2)*pow(rx,2)*pow(y-1,2)-pow(rx,2)*pow(ry,2);
+while(dx>=dy)
+{
+putpixel(xc+x,yc+y,7);
+putpixel(xc-x,yc+y,7);
+putpixel(xc+x,yc-y,7);
+putpixel(xc-x,yc-y,7);
+if(p2>0)
+{
+y--;
+p2-=2*rx*rx*y+rx*rx;
+}
+else
+{
+x++;
+y--;
+p2+=dx-dy+rx*rx;
+} }
+closegraph();
+getch();
+}
